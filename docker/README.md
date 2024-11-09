@@ -84,3 +84,17 @@ docker-compose -f scouter-server.yml up -d
 
 - https://github.com/scouter-project/scouter/releases
 
+
+
+## 4. spring-boot 개발 환경
+
+### 4.1. postgres
+
+- URL: `jdbc:postgresql://IPADDR:5432/spring`
+- Database: spring
+- Username / Password: spring/1
+
+```shell
+docker-compose -f postgres.yml up -d
+```
+
