@@ -1,0 +1,34 @@
+baseURL = 'http://localhost:90/'
+title = 'Docs'
+theme = 'simple'
+
+[Params]
+  author = "spring"
+  description = "docs"
+
+[menu]
+  [[menu.main]]
+    identifier = 'env'
+    name = '+ env'
+    weight = 1
+  [[menu.main]]
+    parent = 'env'
+    identifier = 'docs'
+    name = 'docs'
+    url = '/env/docs/'
+    weight = 1
+  [[menu.main]]
+    identifier = 'hello'
+    name = 'hello'
+    url = '/hello/'
+    weight = 1
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    guessSyntax = true
+    codeFences = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 5

@@ -1,0 +1,48 @@
+# [eclipse]
+.project
+.settings
+.classpath
+.factorypath
+.externalToolBuilders
+
+*/.project
+*/.settings
+*/.classpath
+*/.factorypath
+*/.externalToolBuilders
+
+
+# [intellij]
+.idea
+
+
+# [vscode]
+.vscode
+
+
+# [maven]
+target
+.mvn
+
+*/target
+*/.mvn
+
+
+# [gradle]
+.gradle
+build
+bin
+
+*/.gradle
+*/build
+*/bin
+
+# [sonarqube]
+.scannerwork
+.sonarlint
+*/.scannerwork
+*/.sonarlint
+
+# [application]
+logs
+*/logs
