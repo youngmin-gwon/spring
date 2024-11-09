@@ -1,0 +1,30 @@
+plugins {
+  id 'java'
+  id 'maven-publish'
+  id 'org.springframework.boot' version '3.3.4'
+}
+
+dependencies {
+  implementation enforcedPlatform(project(":"))
+  
+  implementation "org.mapstruct:mapstruct:${mapstruct_version}"
+  implementation "org.modelmapper:modelmapper:${modelmapper_version}"
+  
+  implementation "org.springframework.boot:spring-boot-starter-web"
+  implementation "jakarta.servlet:jakarta.servlet-api"
+  
+  implementation "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:${log4jdbc_version}"
+  
+  annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"
+  compileOnly "org.projectlombok:lombok-mapstruct-binding:${lombok_mapstruct_binding_version}"
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+      from(components.java)
+      artifact tasks.bootJar
+      artifact tasks.sourceJar
+    }
+  }
+}

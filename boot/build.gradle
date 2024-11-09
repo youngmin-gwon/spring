@@ -1,0 +1,75 @@
+plugins {
+  id 'java-platform'
+  id 'maven-publish'
+}
+
+ext {
+  dependencyRepos = {
+    mavenCentral()
+    mavenLocal()
+  }
+  
+  java_version = 17
+  
+  spring_boot_version = '3.3.4'
+  mybatis_version = '3.0.3'
+  
+  lombok_version = '1.18.32'
+  lombok_mapstruct_binding_version = '0.2.0'
+  mapstruct_version = '1.5.5.Final'
+  modelmapper_version = '3.2.0'
+  jasypt_spring_boot_version = '3.0.5'
+  log4jdbc_version = '1.16'
+  postgresql_version = '42.7.4'
+}
+
+group = 'youngmin.spring'
+version = '0.1-SNAPSHOT'
+
+repositories dependencyRepos
+
+dependencies {
+  constraints {
+    platform "org.springframework.boot:spring-boot-dependencies:${spring_boot_version}"
+  }
+}
+
+javaPlatform {
+  allowDependencies()
+}
+
+subprojects {
+  apply plugin: 'java'
+  
+  java {
+    sourceCompatibility = java_version.toString()
+    targetCompatibility = java_version.toString()
+  }
+  
+  repositories dependencyRepos
+  
+  dependencies {
+    implementation platform("org.springframework.boot:spring-boot-dependencies:${spring_boot_version}")
+    
+    implementation "org.slf4j:slf4j-api"
+    
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+    
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+  }
+  
+  task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = 'sources'
+  }
+  
+  tasks.withType(Javadoc) {
+    options.encoding = 'utf-8'
+  }
+  
+  tasks.withType(JavaCompile) {
+    options.encoding = 'utf-8'
+    options.compilerArgs << '-parameters'
+  }
+}
