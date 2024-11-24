@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.RequiredArgsConstructor;
 import youngmin.spring.boot.user.dto.GreetingResDto;
 import youngmin.spring.boot.user.dto.GreetingResDto.GreetingRes;
 
 @RestController
-@RequiredArgsConstructor
 public class GreetingController {
   
   @GetMapping("/user/v1/greeting")
@@ -27,5 +25,4 @@ public class GreetingController {
     
     return ResponseEntity.ok(resDto);
   }
-  
 }
