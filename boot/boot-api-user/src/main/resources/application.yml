@@ -3,3 +3,23 @@ spring:
     active: local
   application:
     name: boot-api-user
+  sql:
+    init:
+      mode: always
+      platform: postgres
+      schema-locations: classpath:schema-postgres.sql
+      data-locations: classpath:data.sql
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:postgresql://localhost:5432/spring
+    username: spring
+    password: 1
+    hikari:
+      connection-timeout: 250
+      maximum-pool-size: 3
+      max-lifetime: 1800000
+      pool-name: hikari
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: youngmin.**.vo; java.lang

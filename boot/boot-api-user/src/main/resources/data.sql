@@ -1,0 +1,12 @@
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Galileo Galilei', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Johannes Kepler', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Isaac Newton', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Dmitri Mendeleev', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Albert Einstein', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Stephen Hawking', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Nikola Tesla', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Niels Bohr', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Michael Faraday', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('James Clerk Maxwell', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Alan Turing', 1, 1);
+INSERT INTO scientist (name, create_id, modify_id) VALUES('Richard Feynman', 1, 1);
