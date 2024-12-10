@@ -63,6 +63,33 @@
     _생략_
 
 
+### 2. features
+
+#### 1) basic controller
+
+- GET 방식의 api 요청에 json 형식(Content-Type: application/json) 으로 응답하는 예시입니다.
+- curl -X GET http://localhost:8080/user/v1/greeting?lang=en
+- GET 방식의 querystring 은 `required = false` 에 의해 생략될 수 있습니다. (기본은 true 이며, 없을 경우 Exception 발생)
+
+```java
+@RestController
+public class GreetingController {
+  @GetMapping("/user/v1/greeting")
+  public ResponseEntity<GreetingRes> greeting(
+      @RequestParam(name = "lang", required = false) String lang) {
+    GreetingResDto.GreetingRes resDto = new GreetingResDto.GreetingRes();
+    if ("en".equals(lang)) {
+      resDto.setMessage("hello");
+    } else if ("de".equals(lang)) {
+      resDto.setMessage("Hallo");
+    } else {
+      resDto.setMessage("안녕하세요");
+    }
+    return ResponseEntity.ok(resDto);
+  }
+}
+```
+
 #### 2) mybatis crud
 
 ##### 2.1) library
